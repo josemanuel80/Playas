@@ -1,0 +1,38 @@
+.homeMain {
+  margin-left: 31vw;
+
+  margin-bottom: 50vh;
+  margin-top: 2vh;
+
+  text-align: center;
+  align-items: center;
+}
+
+.container {
+  align-items: center;
+  align-items: center;
+  margin-left: 10vw;
+  margin-top: 10vh;
+}
+
+.input {
+  height: 60px;
+  padding: 0 46px 0 10px;
+  border-color: black;
+  border-radius: 35px;
+  border-style: solid;
+  border-width: 5px;
+  margin-top: 15px;
+  color: #333;
+  font-family: "Helvetica", sans-serif;
+  font-size: 26px;
+}
+.input:focus {
+  outline: none;
+  border-color: #333;
+}
+.btn {
+  display: flexbox;
+  justify-content: center;
+  width: 200px;
+}
