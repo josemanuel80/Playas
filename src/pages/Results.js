@@ -1,44 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { getAllBeaches } from '../lib/api';
 import { useParams } from 'react-router-dom';
-import Beach from '../components/Beach';
+import { getAllBeaches } from '../lib/fetch';
+import { useEffect, useState } from 'react';
+import { Beach } from '../components/Beach.js';
+import '../styles/Beach.css';
 
-const Results = () => {
-  const [loading, setloading] = useState(true);
-  const [beachesToRender, setBeachesToRender] = useState([]);
-  const { searchString } = useParams();
+export const Results = () => {
+  const [beachToRender, setBeachToRender] = useState([]);
+  const { city } = useParams();
 
-  const getBeachesToRender = (allBeaches, string) => {
-    return allBeaches.filter((beach) => {
+  const getBeaches = (beaches, string) => {
+    return beaches.filter((beach) => {
       return beach.properties.Término_M.toLowerCase().includes(string);
     });
   };
+  const allBeaches = async () => {
+    const fetchAllBeaches = await getAllBeaches();
+    const beachesToShow = getBeaches(fetchAllBeaches, city);
 
-  const fetchAllBeaches = async () => {
-    const beachesData = await getAllBeaches();
-    const beachesToShow = getBeachesToRender(beachesData, searchString);
-    setloading(false);
-    setBeachesToRender(beachesToShow);
+    setBeachToRender(beachesToShow);
   };
-
   useEffect(() => {
-    fetchAllBeaches();
-  }, []);
+    allBeaches();
+  });
 
   return (
-    <main className="main">
-     
-      <h2>Se han encontrado {beachesToRender.length} playas</h2>
-      {loading && <h3>Loading</h3>}
-
-      {beachesToRender.map((beach) => (
-         <div className="results">
-        <Beach key={beach.properties.OBJECTID} data={beach} />
-            </div>
-      ))}
-  
-    </main>
+    <>
+      <h2>Se han encontrado {beachToRender.length} playas</h2>
+      <div className="main">
+        {beachToRender.map((e) => {
+          return <Beach key={e.properties.OBJECTID} data={e} />;
+        })}
+      </div>
+    </>
   );
 };
-
-export default Results;

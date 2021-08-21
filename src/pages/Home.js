@@ -1,39 +1,39 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import '../styles/Home.css';
 
-const Home = () => {
-  const [searchString, setSearchString] = useState('');
+export const Home = () => {
+  const [city, setCity] = useState('');
   const history = useHistory();
-
-  const handleChange = (event) => {
-    const searchItem = event.currentTarget.value;
-    setSearchString(searchItem);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push(`/results/${searchString.toLowerCase()}`);
+
+    history.push(`/results/${city.toLowerCase()}`);
+  };
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    const value = event.currentTarget.value;
+    setCity(value);
   };
 
   return (
-    <main className="homeMain">
+    <div className="HomeMain">
       <section className="container">
         <h2>BUSCADOR DE PLAYAS</h2>
-
+        <br></br>
         <form method="get" action="/" onSubmit={handleSubmit}>
-          <label htmlFor="search"></label>
-          <input className="input"
-            type="search"
-            id="search"
-            placeholder="Buscar ciudad"
-            value={searchString}
+          <input
+            type="text"
+            placeholder="Ciudad costera"
+            className="input"
+            name="city"
+            value={city}
             onChange={handleChange}
           />
-          <button className="btn" type="submit">Buscar</button>
         </form>
       </section>
-    </main>
+    </div>
   );
 };
-
-export default Home;

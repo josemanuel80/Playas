@@ -1,0 +1,18 @@
+.HomeMain {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+}
+.container {
+  align-items: center;
+  margin-top: 20rem;
+}
+body {
+  background-image: url('../assets/playa.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.input {
+  font-size: x-large;
+}
