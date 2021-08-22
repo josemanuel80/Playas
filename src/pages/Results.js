@@ -6,19 +6,24 @@ import '../styles/Beach.css';
 
 export const Results = () => {
   const [beachToRender, setBeachToRender] = useState([]);
+
+  // Obtiene la ciudad por params.
   const { city } = useParams();
 
+  // Filtra las playas para obtener la buscada.
   const getBeaches = (beaches, string) => {
     return beaches.filter((beach) => {
       return beach.properties.Término_M.toLowerCase().includes(string);
     });
   };
+
+  // Obtiene el fetch de las playas y las manda por hook para retornar.
   const allBeaches = async () => {
     const fetchAllBeaches = await getAllBeaches();
     const beachesToShow = getBeaches(fetchAllBeaches, city);
-
     setBeachToRender(beachesToShow);
   };
+
   useEffect(() => {
     allBeaches();
   });
