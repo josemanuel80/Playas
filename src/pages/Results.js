@@ -6,6 +6,7 @@ import '../styles/Beach.css';
 
 export const Results = () => {
   const [beachToRender, setBeachToRender] = useState([]);
+  const [loading, setloading] = useState(true);
 
   // Obtiene la ciudad por params.
   const { city } = useParams();
@@ -21,6 +22,7 @@ export const Results = () => {
   const allBeaches = async () => {
     const fetchAllBeaches = await getAllBeaches();
     const beachesToShow = getBeaches(fetchAllBeaches, city);
+    setloading(false);
     setBeachToRender(beachesToShow);
   };
 
@@ -31,6 +33,7 @@ export const Results = () => {
   return (
     <>
       <h2>Se han encontrado {beachToRender.length} playas</h2>
+      {loading && <h3>Cargando base de datos.</h3>}
       <div className="main">
         {beachToRender.map((e) => {
           return <Beach key={e.properties.OBJECTID} data={e} />;
