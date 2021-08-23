@@ -38,7 +38,7 @@ export const Results = () => {
               <div className="SimpleMap">
                 <GoogleMapReact
                   bootstrapURLKeys={{
-                    key: '',
+                    key: 'AIzaSyDY85wbf_dvuAcMW0RgRVyDFhUASqbzcyg',
                   }}
                   defaultCenter={{
                     lat: e.properties.Coordena_5,
