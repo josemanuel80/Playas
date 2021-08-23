@@ -6,13 +6,12 @@ export const Home = () => {
   const [city, setCity] = useState('');
   const history = useHistory();
 
-  // Cambia de pagina y manda valor de la ciudad por params.
   const handleSubmit = (event) => {
     event.preventDefault();
+
     history.push(`/results/${city.toLowerCase()}`);
   };
 
-  // Obtiene la ciudad.
   const handleChange = (event) => {
     event.preventDefault();
     const value = event.currentTarget.value;
