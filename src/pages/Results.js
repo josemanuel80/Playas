@@ -5,35 +5,28 @@ import { Beach } from '../components/Beach.js';
 import { useHistory } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 import '../styles/results.css';
-
 import '../styles/Beach.css';
-/* import { iniciarMap } from './Map'; */
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export const Results = () => {
-  const history = useHistory();
   const [beachToRender, setBeachToRender] = useState([]);
   const { city } = useParams();
 
   const getBeaches = (beaches, string) => {
     return beaches.filter((beach) => {
       const result = beach.properties.Término_M.toLowerCase().includes(string);
-
       return result;
     });
   };
   const allBeaches = async () => {
     const fetchAllBeaches = await getAllBeaches();
     const beachesToShow = getBeaches(fetchAllBeaches, city);
-
     setBeachToRender(beachesToShow);
   };
   useEffect(() => {
     allBeaches();
   });
-  /* iniciarMap(57, 40); */
-  const handleClick = () => {
-    history.push(`/map/${city}`);
-  };
+
   return (
     <>
       <h2>Se han encontrado {beachToRender.length} playas</h2>
