@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { getAllBeaches } from '../lib/fetch';
 import { useEffect, useState } from 'react';
 import { Beach } from '../components/Beach.js';
-import { useHistory } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 import '../styles/results.css';
 import '../styles/Beach.css';
@@ -50,8 +49,6 @@ export const Results = () => {
                   <AnyReactComponent
                     lat={e.properties.Coordena_5}
                     lng={e.properties.Coordena_4}
-                    /*         lat={e.properties.coordena_4}
-                    lng={e.properties.coordena_5} */
                     text="Aquí"
                   />
                 </GoogleMapReact>
