@@ -2,12 +2,10 @@ import { useParams } from 'react-router-dom';
 import { getAllBeaches } from '../lib/fetch';
 import { useEffect, useState } from 'react';
 import { Beach } from '../components/Beach.js';
-import GoogleMapReact from 'google-map-react';
+
 import '../styles/results.css';
 import '../styles/Beach.css';
-import { v4 as uuid } from 'uuid';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export const Results = () => {
   const [beachToRender, setBeachToRender] = useState([]);
   const { city } = useParams();
