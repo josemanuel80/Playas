@@ -5,6 +5,7 @@ import { Beach } from '../components/Beach.js';
 import GoogleMapReact from 'google-map-react';
 import '../styles/results.css';
 import '../styles/Beach.css';
+import { v4 as uuid } from 'uuid';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 export const Results = () => {
@@ -28,31 +29,12 @@ export const Results = () => {
 
   return (
     <>
-      <h2>Se han encontrado {beachToRender.length} playas</h2>
+      <p className="found">Se han encontrado {beachToRender.length} playas</p>
       <div className="main">
         {beachToRender.map((e) => {
           return (
             <>
               <Beach key={e.properties.OBJECTID} data={e} />
-              <br></br>
-              <div className="SimpleMap">
-                <GoogleMapReact
-                  bootstrapURLKeys={{
-                    key: 'AIzaSyDY85wbf_dvuAcMW0RgRVyDFhUASqbzcyg',
-                  }}
-                  defaultCenter={{
-                    lat: e.properties.Coordena_5,
-                    lng: e.properties.Coordena_4,
-                  }}
-                  defaultZoom={11}
-                >
-                  <AnyReactComponent
-                    lat={e.properties.Coordena_5}
-                    lng={e.properties.Coordena_4}
-                    text="Aquí"
-                  />
-                </GoogleMapReact>
-              </div>
             </>
           );
         })}

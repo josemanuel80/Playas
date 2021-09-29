@@ -9,9 +9,13 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  border: 1px solid black;
+  border-radius: 5px;
+  border: 3px solid lightgrey;
+  background-color: rgba(211, 211, 211, 0.281);
+  box-shadow: 0 5px 8px -9px rgb(0, 0, 0, 1);
   font-size: x-large;
   margin-left: 10%;
+  overflow: scroll;
 }
 .main {
   display: grid;

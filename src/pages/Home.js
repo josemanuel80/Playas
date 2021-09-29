@@ -23,7 +23,12 @@ export const Home = () => {
       <section className="container">
         <h2>BUSCADOR DE PLAYAS</h2>
         <br></br>
-        <form method="get" action="/" onSubmit={handleSubmit}>
+        <form
+          className="buscador"
+          method="get"
+          action="/"
+          onSubmit={handleSubmit}
+        >
           <input
             type="text"
             placeholder="Ciudad costera"
@@ -32,6 +37,9 @@ export const Home = () => {
             value={city}
             onChange={handleChange}
           />
+          <button className="submit" onClick={handleSubmit}>
+            Enviar
+          </button>
         </form>
       </section>
     </div>
