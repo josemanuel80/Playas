@@ -14,3 +14,7 @@
 .main {
   align-items: center;
 }
+.results {
+  text-align: center;
+  font-size: x-large;
+}
