@@ -37,8 +37,11 @@ export const Results = () => {
       <div className="inicio">
         <a href="http://josemanuelcastellano.com">Inicio</a>
       </div>
-      <p className="found">Se han encontrado {beachToRender.length} playas</p>
-      <p className="text">{text}</p>
+      <div className="results">
+        <p className="found">Se han encontrado {beachToRender.length} playas</p>
+        <p className="text">{text}</p>
+        <a href="https://sleepy-northcutt-f36bee.netlify.app">Volver</a>
+      </div>
       <div className="main">
         {beachToRender.map((e) => {
           return <Beach key={e.properties.OBJECTID} data={e} />;
