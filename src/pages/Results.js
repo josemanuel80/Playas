@@ -32,9 +32,7 @@ export const Results = () => {
   useEffect(() => {
     allBeaches();
   });
-  const volver = () => {
-    history.push('/');
-  };
+
   return (
     <>
       <div className="inicio">
