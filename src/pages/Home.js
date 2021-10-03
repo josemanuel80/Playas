@@ -20,6 +20,9 @@ export const Home = () => {
 
   return (
     <div className="HomeMain">
+      <div className="inicio">
+        <a href="http://josemanuelcastellano.com">Inicio</a>
+      </div>
       <section className="container">
         <h2>BUSCADOR DE PLAYAS</h2>
         <br></br>

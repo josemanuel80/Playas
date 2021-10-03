@@ -33,3 +33,8 @@ body {
   width: 10rem;
   height: 2rem;
 }
+.inicio {
+  text-align: end;
+  font-size: xx-large;
+  margin: 1rem;
+}
